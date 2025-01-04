@@ -15,6 +15,11 @@ public class ProductBaseAdapter extends BaseAdapter {
     ArrayList<Products> list;
     Context context;
 
+    interface ProductClickListener {
+        void productSelected(String name, String price, String quantity);
+    }
+
+    ProductClickListener productClickListener;
     ProductBaseAdapter(ArrayList<Products> l, Context c){
         list = l;
         context = c;
@@ -44,13 +49,15 @@ public class ProductBaseAdapter extends BaseAdapter {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println(list.get(i).productType);
+                System.out.println("onclick");
+                System.out.println(i + list.get(i).productType);
+                productClickListener.productSelected(list.get(i).productType, list.get(i).price, list.get(i).quantity);
             }
         });
 
         productNameInRow.setText(list.get(i).productType);
         quantityInRow.setText(list.get(i).quantity);
-        priceInRow.setText(list.get(i).price);
+        priceInRow.setText(list.get(i).price + "$");
 
         return v;
     }

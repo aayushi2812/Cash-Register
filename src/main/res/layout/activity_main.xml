@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/quantity"
-        android:paddingTop="10dp">
+        >
 
         <TextView
             android:id="@+id/productType"
@@ -38,7 +38,6 @@
         android:layout_width="377dp"
         android:layout_height="54dp"
         android:text="Quantity"
-        android:layout_margin="20dp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -145,22 +144,37 @@
         </TableRow>
     </TableLayout>
 
-    <Button
-        android:id="@+id/buy"
-        android:layout_width="123dp"
-        android:layout_height="55dp"
-        android:text="Buy"
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/table"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/table">
+
+        <Button
+            android:id="@+id/buy"
+            android:layout_width="123dp"
+            android:layout_height="55dp"
+            android:text="Buy"
+            android:enabled="false"
+            android:layout_marginRight="20dp"
+            />
+
+        <Button
+            android:id="@+id/manager"
+            android:layout_width="123dp"
+            android:layout_height="55dp"
+            android:text="Manager"
+            />
+    </LinearLayout>
 
 
     <ListView
         android:id="@+id/products"
         android:layout_width="410dp"
-        android:layout_height="205dp"
-        app:layout_constraintTop_toBottomOf="@+id/buy"
+        android:layout_height="250dp"
+        app:layout_constraintTop_toBottomOf="@+id/buttons"
         tools:layout_editor_absoluteX="1dp"
         tools:ignore="MissingConstraints" />
 
